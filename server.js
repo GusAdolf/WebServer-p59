@@ -6,7 +6,7 @@ require('./hbs/helpers');
 
 const port = process.env.PORT || 3000;
 
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/public'));
 
 hbs.registerPartials(__dirname + '/views/parciales');
 
@@ -14,20 +14,27 @@ app.set('view engine', 'hbs');
 
 
 //registrar un helper
-hbs.registerHelper('getAnio', () => {
-    return new Date().getFullYear()
-});
+
+
 
 app.get('/', (req, res) => {
-    res.render("about", {
-        titulo: "Acerca",
+    res.render("home", {
+        titulo: "Home",
         nombre: "Gustavo",
-        anio: new Date().getFullYear()
+        // anio: new Date().getFullYear()
+    });
+});
+
+app.get('/about', (req, res) => {
+    res.render("about", {
+        titulo: "Acerca"
+
     });
 
 });
 
-});
+//nombre: "Gustavo",
+//anio: new Date().getFullYear()
 
 
 /*
