@@ -27,12 +27,6 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/', (req, res) => {
-    res.render("home", {
-        titulo: "Home",
-        nombre: "Gustavo",
-        anio: new Date().getFullYear()
-    });
 });
 
 
